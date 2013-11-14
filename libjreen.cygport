@@ -1,0 +1,15 @@
+inherit qt4-cmake
+
+NAME="libjreen"
+VERSION=1.1.1
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="Qt Jabber library"
+DESCRIPTION="Jreen is extensible Qt-based asynchronious Jabber library."
+HOMEPAGE="http://qutim.org/jreen"
+SRC_URI="http://qutim.org/dwnl/44/${NAME}-${VERSION}.tar.bz2"
+PATCH_URI="1.1.1-cygwin.patch"
+
+PKG_NAMES="libjreen1 libjreen-devel"
+libjreen1_CONTENTS="usr/bin/cygjreen-1.dll usr/share/doc/"
+libjreen_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/"

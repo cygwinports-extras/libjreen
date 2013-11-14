@@ -1,0 +1,22 @@
+--- origsrc/libjreen-1.1.1/3rdparty/jdns/jdns_p.h	2013-01-06 09:49:31.000000000 -0600
++++ src/libjreen-1.1.1/3rdparty/jdns/jdns_p.h	2013-11-14 01:59:28.787767200 -0600
+@@ -46,6 +46,8 @@
+ # define JDNS_OS_HAIKU
+ #elif defined(__APPLE__) && (defined(__GNUC__) || defined(__xlC__) || defined(__xlc__))
+ # define JDNS_OS_MAC
++#elif defined(__CYGWIN__)
++# define JDNS_OS_CYGWIN
+ #endif
+ 
+ #ifdef JDNS_OS_WIN
+--- origsrc/libjreen-1.1.1/3rdparty/jdns/jdns_sys.c	2013-01-06 09:49:31.000000000 -0600
++++ src/libjreen-1.1.1/3rdparty/jdns/jdns_sys.c	2013-11-14 01:59:38.455320100 -0600
+@@ -729,7 +729,7 @@ static void jdns_resolve_library()
+ //   a define, so the #ifdef doesn't work.  as a workaround, we'll explicitly
+ //   specify the platforms that have __res_state_ext
+ //#ifdef __res_state_ext
+-#if defined(JDNS_OS_MAC) || defined(JDNS_OS_FREEBSD) || defined(JDNS_OS_NETBSD) || defined (JDNS_OS_SOLARIS) || defined(JDNS_OS_HAIKU)
++#if defined(JDNS_OS_MAC) || defined(JDNS_OS_FREEBSD) || defined(JDNS_OS_NETBSD) || defined (JDNS_OS_SOLARIS) || defined(JDNS_OS_HAIKU) || defined(JDNS_OS_CYGWIN)
+ # define USE_EXTEXT
+ #endif
+ 
